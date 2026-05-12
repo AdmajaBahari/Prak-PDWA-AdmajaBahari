@@ -61,6 +61,16 @@ html {
   box-shadow: 12px 12px 0px 0px #f3f0ef !important;
 }
 
+/* Theme background helpers (maps link) */
+.bg-light-app {
+  background: #ffffff;
+}
+
+.dark .bg-light-app {
+  background: #000000;
+} 
+
+
 /* Responsive font improvements */
 @media (max-width: 768px) {
   .font-headline-lg-mobile {

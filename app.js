@@ -166,7 +166,33 @@ function renderMenu() {
 // Render Reviews
 function renderReviews() {
   const reviewsSection = document.querySelector('#reviews');
-  const reviewsHTML = reviews.map(review => {
+  const reviewsGrid = document.querySelector('#reviewsGrid');
+
+  // Bersihkan container agar tidak dobel saat render ulang
+  if (reviewsGrid) reviewsGrid.innerHTML = '';
+
+  const pendingRaw = localStorage.getItem('ttb_pending_review');
+  let pending = null;
+  try {
+    pending = pendingRaw ? JSON.parse(pendingRaw) : null;
+  } catch (e) {
+    pending = null;
+  }
+
+  if (pending && pending.text) {
+    reviews.unshift({
+      rating: pending.rating || 0,
+      label: pending.category || 'Review',
+      text: pending.text,
+      author: 'You',
+      avatar: 'YOU'
+    });
+    localStorage.removeItem('ttb_pending_review');
+  }
+
+  const allReviews = reviews;
+  const reviewsHTML = allReviews.map(review => {
+
     const stars = Array(5).fill().map((_, i) => {
       if (i < Math.floor(review.rating)) {
         return '<span class="material-symbols-outlined" style="font-variation-settings: \'FILL\' 1;">star</span>';
@@ -198,11 +224,17 @@ function renderReviews() {
     `;
   }).join('');
 
-  reviewsSection.innerHTML += `
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  if (reviewsGrid) {
+    reviewsGrid.innerHTML = `
       ${reviewsHTML}
-    </div>
-  `;
+    `;
+  } else {
+    reviewsSection.innerHTML += `
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="reviewsGridFallback">
+        ${reviewsHTML}
+      </div>
+    `;
+  }
 }
 
 // Render About
