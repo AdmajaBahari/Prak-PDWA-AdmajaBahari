@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teh Tarik Bakar - Godean</title>
+    <meta name="description" content="Teh Tarik Bakar Godean - Street tea reimagined with authentic burnt tea sensation. Tarik. Bakar. Nikmat.">
+    
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;800;900&family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#fffbff",
+              "on-tertiary-fixed": "#261a00",
+              tertiary: "#785900",
+              "primary-container": "#ff5722",
+              "on-surface": "#1c1b1b",
+              "on-primary-fixed": "#3b0900",
+              "on-error-container": "#93000a",
+              surface: "#fcf9f8",
+              "on-tertiary-container": "#372700",
+              "on-surface-variant": "#5b4039",
+              error: "#ba1a1a",
+              "surface-variant": "#e5e2e1",
+              "on-secondary": "#ffffff",
+              "inverse-primary": "#ffb5a0",
+              "secondary-fixed-dim": "#ffb3ac",
+              "inverse-on-surface": "#f3f0ef",
+              "surface-container-low": "#f6f3f2",
+              "surface-dim": "#dcd9d9",
+              "secondary-fixed": "#ffdad6",
+              "surface-bright": "#fcf9f8",
+              "primary-fixed-dim": "#ffb5a0",
+              "outline-variant": "#e4beb4",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#930010",
+              "tertiary-fixed": "#ffdf9e",
+              "secondary-container": "#da3433",
+              "inverse-surface": "#313030",
+              "tertiary-container": "#b78a00",
+              "primary-fixed": "#ffdbd1",
+              "on-primary-fixed-variant": "#862200",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container-high": "#eae7e7",
+              "on-background": "#1c1b1b",
+              "on-tertiary": "#ffffff",
+              "surface-container": "#f0eded",
+              "on-primary-container": "#541200",
+              "surface-tint": "#b02f00",
+              outline: "#907067",
+              "tertiary-fixed-dim": "#fabd00",
+              background: "#fcf9f8",
+              primary: "#b02f00",
+              secondary: "#b6171e",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "shadow_offset": "8px",
+              "container_margin_desktop": "40px",
+              "container_margin_mobile": "20px",
+              gutter: "24px",
+              base_unit: "4px",
+              border_width: "4px",
+            },
+            fontFamily: {
+              "headline-lg-mobile": ["Lexend"],
+              "display-xl": ["Lexend"],
+              "label-bold": ["Space Grotesk"],
+              "headline-lg": ["Lexend"],
+              "headline-md": ["Lexend"],
+              "body-md": ["Lexend"],
+              "body-lg": ["Lexend"],
+            },
+            fontSize: {
+              "headline-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "800" }],
+              "display-xl": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+              "label-bold": ["14px", { lineHeight: "1.2", fontWeight: "700" }],
+              "headline-lg": ["40px", { lineHeight: "1.2", fontWeight: "800" }],
+              "headline-md": ["28px", { lineHeight: "1.3", fontWeight: "700" }],
+              "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "500" }],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="bg-background text-on-background selection:bg-primary-container selection:text-on-surface font-body-md antialiased">
+    
+    <!-- Top Navigation Bar -->
+    <header class="bg-surface sticky top-0 z-50 neubrutalism-border border-l-0 border-r-0 border-t-0 border-b-4 neubrutalism-shadow mb-8">
+      <nav class="flex justify-between items-center w-full px-container_margin_mobile md:px-container_margin_desktop py-4">
+        <!-- Logo -->
+        <div class="font-headline-lg text-headline-lg font-extrabold text-primary tracking-tighter">
+          Teh Tarik Bakar
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex gap-8 items-center">
+          <a class="text-on-surface border-b-4 border-primary pb-1 font-label-bold text-label-bold uppercase hover:scale-105 transition-transform" href="#home">Home</a>
+          <a class="text-on-surface-variant hover:text-on-surface hover:bg-primary-fixed-dim px-2 py-1 rounded transition-all font-label-bold text-label-bold uppercase" href="#menu">Menu</a>
+          <a class="text-on-surface-variant hover:text-on-surface hover:bg-primary-fixed-dim px-2 py-1 rounded transition-all font-label-bold text-label-bold uppercase" href="#reviews">Reviews</a>
+          <a class="text-on-surface-variant hover:text-on-surface hover:bg-primary-fixed-dim px-2 py-1 rounded transition-all font-label-bold text-label-bold uppercase" href="#about">About</a>
+        </div>
+        
+        <!-- Dark Mode Toggle -->
+        <button aria-label="Toggle Dark Mode" 
+                class="neubrutalism-border bg-surface-variant p-2 neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active transition-all rounded-lg"
+                id="darkModeToggle">
+          <span class="material-symbols-outlined block text-on-surface" style="font-variation-settings: 'FILL' 1; font-size: 24px;">dark_mode</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="px-container_margin_mobile md:px-container_margin_desktop space-y-24 pb-24">
+      
+      <!-- 1. Hero Section -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-8" id="home">
+        <div class="space-y-8 animate-fade-in">
+          <!-- Rating Badge -->
+          <div class="inline-flex items-center gap-2 bg-tertiary-fixed-dim neubrutalism-border px-4 py-2 font-label-bold text-label-bold uppercase">
+            <span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span>2.8 / 5.0 Rating (142 Reviews)</span>
+          </div>
+
+          <!-- Hero Title -->
+          <h1 class="font-display-xl text-display-xl text-on-surface uppercase leading-none">
+            Tarik.<br />
+            Bakar.<br />
+            <span class="text-primary-container">Nikmat.</span>
+          </h1>
+
+          <!-- Hero Description -->
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+            Outlet Godean menyajikan teh otentik dengan sensasi bakar yang khas. 
+            Rasakan energi jalanan di setiap tegukan. Street tea, reimagined.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap gap-4 pt-4">
+            <button class="bg-primary-container text-on-primary neubrutalism-border neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active px-8 py-4 font-label-bold text-label-bold uppercase flex items-center gap-2 transition-all">
+              <span class="material-symbols-outlined">directions</span> 
+              Rute
+            </button>
+            <button class="bg-surface text-on-surface neubrutalism-border neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active px-8 py-4 font-label-bold text-label-bold uppercase flex items-center gap-2 transition-all">
+              <span class="material-symbols-outlined">bookmark</span> 
+              Simpan
+            </button>
+            <button class="bg-surface text-on-surface neubrutalism-border neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active px-8 py-4 font-label-bold text-label-bold uppercase flex items-center gap-2 transition-all">
+              <span class="material-symbols-outlined">share</span> 
+              Bagikan
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="relative w-full aspect-square md:aspect-auto md:h-[600px] bg-secondary-container neubrutalism-border neubrutalism-shadow flex items-center justify-center p-8 overflow-hidden animate-slide-up">
+          <img
+            alt="Teh Tarik Bakar - Street tea branding with bold neubrutalist aesthetic"
+            class="w-full h-full object-contain drop-shadow-[8px_8px_0px_rgba(28,27,27,1)] hover:scale-105 transition-transform duration-500"
+            src="https://lh3.googleusercontent.com/aida/ADBb0ug336SMH-I33Zmf0kSFFIHT8_ib1ctGGku0mrvmjXA9uIepn_xN0_BETQExbRw7HTUdBySHzeQQUT-7xuW0TnEQmmKrWF7r2iN05WwL3XBal7-FGLFhEPxM8axVUZxGqgANb8LWQc8YYF031sBd_pqQcoK64hSrpcl29Q2z9eK06NMHQzbZFI8TQNgmVISltzrEgQiPrjvDdcnZ6iCOsvpXCbXRaX7kqn3UgTlsjqI5qLce1hmooK-l4DYit9q0hNnNmGmk_7jMnA"
+            loading="eager"
+          />
+        </div>
+      </section>
+
+      <!-- 2. Menu Section -->
+      <section class="space-y-12" id="menu">
+        <div class="flex flex-col md:flex-row justify-between items-end border-b-4 border-on-surface pb-4">
+          <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface animate-fade-in">Menu Utama</h2>
+          <div class="font-label-bold text-label-bold bg-primary px-4 py-2 text-on-primary neubrutalism-border uppercase animate-slide-up">Daftar Harga & Ukuran</div>
+        </div>
+
+        <!-- Menu Grid - Generated by JavaScript -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 menu-grid">
+          <!-- Menu items will be inserted here by app.js -->
+        </div>
+      </section>
+
+      <!-- 3. Reviews Section -->
+      <section class="bg-surface-variant neubrutalism-border p-8 md:p-12 space-y-8 neubrutalism-shadow animate-fade-in" id="reviews">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b-4 border-on-surface pb-6">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">Ulasan Pengunjung</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-2">Suara dari jalanan, apa adanya.</p>
+          </div>
+          <button class="bg-secondary text-on-secondary neubrutalism-border neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active px-6 py-3 font-label-bold text-label-bold uppercase flex items-center gap-2 transition-all hover:scale-105">
+            <span class="material-symbols-outlined">edit_square</span> 
+            Tulis Ulasan
+          </button>
+        </div>
+
+        <!-- Reviews Grid - Generated by JavaScript -->
+        <div class="reviews-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Reviews will be inserted here by app.js -->
+        </div>
+      </section>
+
+      <!-- 4. About Section -->
+      <section id="about" class="space-y-12">
+        <!-- About content will be generated by JavaScript -->
+      </section>
+
+      <!-- 5. Location Section -->
+      <section class="bg-surface neubrutalism-border neubrutalism-shadow min-h-[400px] relative overflow-hidden animate-slide-up" id="location">
+        <img 
+          class="w-full h-full object-cover absolute inset-0" 
+          alt="Stylized map view of Godean location in neubrutalist style"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_0osVk53kkPDhKJvPIaAIQJhX4HIKfweuwFveOjwnTb2V_Bcaq5BMxfZREy0O8m9WQ_g7t2_azzha0Y8zXctChK89ZNsnzPhFc7pFS_1YdUdQ3aeaTpGq12vEZjQprBRnqOpS9u_dpRKlEGkzUPbstLdxuqaVdX4rmUIer8716xKsnX29iSuviKXf1Ns_UXuDOS5tWqZWUj31UkrXxuqExr0zIZ_TX3XUzTPiAOxbcUGmLoE2Ef8c0trWHjzvH8MJhAPUjBXCf7A"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-primary/10 mix-blend-multiply pointer-events-none"></div>
+        
+        <!-- Location Info -->
+        <div class="absolute bottom-6 right-6 bg-surface text-on-surface neubrutalism-border p-4 neubrutalism-shadow font-label-bold text-label-bold uppercase flex items-center gap-2">
+          <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">my_location</span> 
+          TTB Godean
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-container text-on-secondary-container font-label-bold text-label-bold border-t-4 border-on-surface w-full mt-24">
+      <div class="flex flex-col md:flex-row justify-between items-center w-full px-container_margin_mobile md:px-container_margin_desktop py-12 gap-8">
+        <div class="font-headline-md text-headline-md text-on-secondary-container uppercase tracking-tight">
+          Teh Tarik Bakar
+        </div>
+        <div class="flex flex-col md:flex-row gap-8 items-center">
+          <a href="https://instagram.com/tehtarikbakar" class="hover:text-primary transition-all duration-300 hover:scale-110" target="_blank" rel="noopener">
+            Instagram
+          </a>
+          <a href="#" class="hover:text-primary transition-all duration-300 hover:scale-110">
+            Google Maps
+          </a>
+        </div>
+        <div class="text-center md:text-right font-body-md text-body-md text-on-secondary-container opacity-80">
+          © 2025 Teh Tarik Bakar (TTB). All rights reserved. Godean, Sleman.
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./app.js"></script>
+  </body>
+</html>
+
+<!-- Branding Mark Overlay -->
+<div class="absolute bottom-4 right-4 bg-primary text-on-primary p-4 neu-border rotate-3 shadow-[4px_4px_0px_0px_rgba(26,26,26,1)]">
+<span class="material-symbols-outlined text-[48px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+</section>
+<!-- The Process Bento Grid -->
+<section class="flex flex-col gap-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface border-b-4 border-on-surface pb-2 uppercase tracking-tighter">
+                The Bakar Process
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Bento Card 1 -->
+<div class="bg-surface-container-high neu-border neu-shadow p-6 flex flex-col gap-4">
+<div class="w-16 h-16 bg-tertiary-fixed-dim neu-border flex items-center justify-center rounded-full mb-2">
+<span class="material-symbols-outlined text-[32px] text-on-surface" data-icon="temp_preferences_custom">temp_preferences_custom</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">The Heat</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        It starts with fire. We don't just brew; we roast the tea leaves and sugar aggressively to caramelize and extract intense, smoky flavors before a drop of water touches them.
+                    </p>
+</div>
+<!-- Bento Card 2 -->
+<div class="bg-primary-container neu-border neu-shadow p-6 flex flex-col gap-4 text-on-primary-container md:col-span-2">
+<div class="w-16 h-16 bg-surface neu-border flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[32px] text-primary" data-icon="water_drop" data-weight="fill" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<h3 class="font-headline-md text-headline-md">The Pull (Tarik)</h3>
+<p class="font-body-lg text-body-lg">
+                        Aeration is key. The "tarik" process cools the intensely hot liquid while creating a thick, frothy head. It's a violent pour back and forth that locks in the signature street-tea texture and tempers the smokiness.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Connect CTA -->
+<section class="bg-secondary text-on-secondary neu-border neu-shadow p-12 text-center flex flex-col items-center justify-center gap-6 mt-8">
+<h2 class="font-display-xl text-display-xl uppercase leading-tight">
+                Feel The Heat.<br/>Join The Streets.
+            </h2>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto mb-4">
+                Follow our journey, see the fire in action, and know when we drop new localized flavors. We are building a community around authentic taste.
+            </p>
+<a class="bg-tertiary-fixed-dim text-on-surface px-8 py-4 font-headline-md text-headline-md neu-border neu-shadow neu-shadow-hover transition-all duration-200 flex items-center gap-3 w-max mx-auto uppercase" href="https://instagram.com/tehtarikbakar" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+                @tehtarikbakar
+            </a>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-secondary-container text-on-secondary-container font-label-bold text-label-bold border-t-4 border-on-surface w-full">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-container_margin_mobile md:px-container_margin_desktop py-8 gap-gutter">
+<div class="font-headline-md text-headline-md text-on-secondary-container uppercase tracking-tight">
+                Teh Tarik Bakar
+            </div>
+<div class="flex gap-8">
+<a class="text-on-secondary-container hover:text-primary transition-colors scale-95 transition-transform hover:underline decoration-4 decoration-primary" href="#">Instagram</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors scale-95 transition-transform hover:underline decoration-4 decoration-primary" href="#">Maps</a>
+</div>
+<div class="text-center md:text-right font-body-md text-body-md text-on-secondary-container opacity-80">
+                © 2026 Teh Tarik Bakar (TTB). All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

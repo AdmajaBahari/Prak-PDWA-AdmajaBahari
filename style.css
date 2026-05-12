@@ -1,0 +1,82 @@
+/* Neubrutalism Core Styles */
+.neubrutalism-border {
+  border: 4px solid #1c1b1b !important;
+}
+
+.neubrutalism-shadow {
+  box-shadow: 8px 8px 0px 0px rgba(28, 27, 27, 1) !important;
+}
+
+.neubrutalism-shadow-hover:hover {
+  box-shadow: 12px 12px 0px 0px rgba(28, 27, 27, 1) !important;
+  transform: translate(-2px, -2px) !important;
+  transition: all 0.1s ease-in-out !important;
+}
+
+.neubrutalism-shadow-active:active {
+  box-shadow: 0px 0px 0px 0px rgba(28, 27, 27, 1) !important;
+  transform: translate(4px, 4px) !important;
+  transition: all 0.05s ease-in-out !important;
+}
+
+/* Custom spacing utilities */
+.px-container_margin_mobile {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.md\:px-container_margin_desktop {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media (min-width: 768px) {
+  .px-container_margin_mobile {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #ff5722 !important;
+  color: #1c1b1b !important;
+}
+
+/* Dark mode adjustments */
+.dark .neubrutalism-border {
+  border-color: #f3f0ef !important;
+}
+
+.dark .neubrutalism-shadow {
+  box-shadow: 8px 8px 0px 0px #f3f0ef !important;
+}
+
+.dark .neubrutalism-shadow-hover:hover {
+  box-shadow: 12px 12px 0px 0px #f3f0ef !important;
+}
+
+/* Responsive font improvements */
+@media (max-width: 768px) {
+  .font-headline-lg-mobile {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+  }
+}
+
+/* Button hover effects */
+button:hover {
+  transform: translate(-1px, -1px) !important;
+}
+
+/* Image hover effects */
+img:hover {
+  transform: scale(1.02) !important;
+  transition: transform 0.3s ease !important;
+}
