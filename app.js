@@ -128,7 +128,7 @@ function renderMenu() {
   if (!menuContainer) return;
   menuContainer.innerHTML = menuItems.map(item => `
     <article class="menu-card bg-surface neubrutalism-border neubrutalism-shadow flex flex-col">
-      <div class="h-48 ${item.bgColor} border-b-4 border-on-surface p-4 relative overflow-hidden flex justify-center items-center">
+      <div class="h-full ${item.bgColor} border-b-4 border-on-surface p-4 relative overflow-hidden flex justify-center items-center">
         <img class="w-full h-full object-cover" src="${item.image}" alt="${item.name}">
       </div>
       <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
