@@ -7,14 +7,8 @@
     <meta name="description" content="Teh Tarik Bakar Godean - Street tea reimagined with authentic burnt tea sensation. Tarik. Bakar. Nikmat.">
     
     <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;800;900&family=Space+Grotesk:wght@700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;800;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -112,6 +106,22 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./style.css" />
+
+    <style>
+      /* Menu card grayscale effect */
+      .menu-card {
+        filter: grayscale(100%);
+        transition: filter 0.3s ease, transform 0.2s ease;
+      }
+      .menu-card:hover {
+        filter: grayscale(0%);
+        animation: menuShake 0.5s ease forwards;
+      }
+      /* Override the global img:hover scale for menu images */
+      .menu-card img:hover {
+        transform: none !important;
+      }
+    </style>
   </head>
   <body class="bg-background text-on-background selection:bg-primary-container selection:text-on-surface font-body-md antialiased">
     
@@ -119,8 +129,13 @@
     <header class="bg-surface sticky top-0 z-50 neubrutalism-border border-l-0 border-r-0 border-t-0 border-b-4 neubrutalism-shadow mb-8">
       <nav class="flex justify-between items-center w-full px-container_margin_mobile md:px-container_margin_desktop py-4">
         <!-- Logo -->
-        <div class="font-headline-lg text-headline-lg font-extrabold text-primary tracking-tighter">
-          Teh Tarik Bakar
+        <div class="flex items-center gap-3">
+          <img src="src/data1.png" alt="Teh Tarik Bakar Logo"
+               class="w-10 h-10 object-contain rounded-sm border-2 border-on-surface"
+               style="image-rendering: auto;">
+          <div class="font-headline-lg text-headline-lg font-extrabold text-primary tracking-tighter">
+            Teh Tarik Bakar
+          </div>
         </div>
         
         <!-- Desktop Navigation -->
@@ -149,12 +164,12 @@
           <!-- Rating Badge -->
           <div class="inline-flex items-center gap-2 bg-tertiary-fixed-dim neubrutalism-border px-4 py-2 font-label-bold text-label-bold uppercase">
             <span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span>2.8 / 5.0 Rating (142 Reviews)</span>
+            <span id="ratingSummary">2.8 / 5.0 Rating (13 Reviews)</span>
           </div>
 
-          <!-- Hero Title -->
+          <!-- Hero Headline -->
           <h1 class="font-display-xl text-display-xl text-on-surface uppercase leading-none">
-            Tarik.<br />
+            Teh Tarik.<br />
             Bakar.<br />
             <span class="text-primary-container">Nikmat.</span>
           </h1>
@@ -162,20 +177,20 @@
           <!-- Hero Description -->
           <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
             Outlet Godean menyajikan teh otentik dengan sensasi bakar yang khas. 
-            Rasakan energi jalanan di setiap tegukan. Street tea, reimagined.
+            Rasakan energi jalanan di setiap tegukan.
           </p>
 
           <!-- Action Buttons -->
           <div class="flex flex-wrap gap-4 pt-4">
-            <button class="bg-primary-container text-on-primary neubrutalism-border neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active px-8 py-4 font-label-bold text-label-bold uppercase flex items-center gap-2 transition-all">
+            <button id="btnRute" class="bg-primary-container text-on-primary neubrutalism-border neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active px-8 py-4 font-label-bold text-label-bold uppercase flex items-center gap-2 transition-all">
               <span class="material-symbols-outlined">directions</span> 
               Rute
             </button>
-            <button class="bg-surface text-on-surface neubrutalism-border neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active px-8 py-4 font-label-bold text-label-bold uppercase flex items-center gap-2 transition-all">
-              <span class="material-symbols-outlined">bookmark</span> 
+            <button id="btnSimpan" class="bg-surface text-on-surface neubrutalism-border neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active px-8 py-4 font-label-bold text-label-bold uppercase flex items-center gap-2 transition-all">
+              <span class="material-symbols-outlined" id="simpanIcon">bookmark</span> 
               Simpan
             </button>
-            <button class="bg-surface text-on-surface neubrutalism-border neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active px-8 py-4 font-label-bold text-label-bold uppercase flex items-center gap-2 transition-all">
+            <button id="btnBagikan" class="bg-surface text-on-surface neubrutalism-border neubrutalism-shadow neubrutalism-shadow-hover neubrutalism-shadow-active px-8 py-4 font-label-bold text-label-bold uppercase flex items-center gap-2 transition-all">
               <span class="material-symbols-outlined">share</span> 
               Bagikan
             </button>
@@ -185,9 +200,9 @@
         <!-- Hero Image -->
         <div class="relative w-full aspect-square md:aspect-auto md:h-[600px] bg-secondary-container neubrutalism-border neubrutalism-shadow flex items-center justify-center p-8 overflow-hidden animate-slide-up">
           <img
-            alt="Teh Tarik Bakar - Street tea branding with bold neubrutalist aesthetic"
+            alt="Teh Tarik Bakar Logo"
             class="w-full h-full object-contain drop-shadow-[8px_8px_0px_rgba(28,27,27,1)] hover:scale-105 transition-transform duration-500"
-            src="https://lh3.googleusercontent.com/aida/ADBb0ug336SMH-I33Zmf0kSFFIHT8_ib1ctGGku0mrvmjXA9uIepn_xN0_BETQExbRw7HTUdBySHzeQQUT-7xuW0TnEQmmKrWF7r2iN05WwL3XBal7-FGLFhEPxM8axVUZxGqgANb8LWQc8YYF031sBd_pqQcoK64hSrpcl29Q2z9eK06NMHQzbZFI8TQNgmVISltzrEgQiPrjvDdcnZ6iCOsvpXCbXRaX7kqn3UgTlsjqI5qLce1hmooK-l4DYit9q0hNnNmGmk_7jMnA"
+            src="src/data1.png"
             loading="eager"
           />
         </div>
@@ -225,60 +240,83 @@
         </div>
       </section>
 
-      <!-- 4. About & Location -->
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch" id="about">
+      <!-- 4. Info Outlet & Location -->
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch" id="about">
         <div class="bg-primary-container text-on-surface neubrutalism-border neubrutalism-shadow p-8 flex flex-col justify-center space-y-6">
-        <h2 class="font-headline-lg text-headline-lg uppercase border-b-4 border-on-surface pb-4">Info Outlet</h2>
-        <div class="space-y-4">
-        <div class="flex items-start gap-4">
-        <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
-      <div>
-        <h3 class="font-label-bold text-label-bold uppercase mb-1">Alamat</h3>
-        <p class="font-body-md text-body-md font-bold">Jl. Ngapak - Kentheng No.36,<br/>Godean, Sleman</p>
-      </div>
-    </div>
-        <div class="flex items-start gap-4">
-        <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">room_service</span>
-      <div>
-        <h3 class="font-label-bold text-label-bold uppercase mb-1">Layanan</h3>
-        <div class="flex gap-2 mt-2">
-        <span class="bg-surface text-on-surface neubrutalism-border px-3 py-1 font-label-bold text-label-bold text-xs uppercase">Makan di tempat</span>
-        <span class="bg-surface text-on-surface neubrutalism-border px-3 py-1 font-label-bold text-label-bold text-xs uppercase">Bawa pulang</span>
+          <h2 class="font-headline-lg text-headline-lg uppercase border-b-4 border-on-surface pb-4">Info Outlet</h2>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+              <div>
+                <h3 class="font-label-bold text-label-bold uppercase mb-1">Alamat</h3>
+                <p class="font-body-md text-body-md font-bold">Jl. Ngapak - Kentheng No.36,<br/>Godean, Sleman</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">room_service</span>
+              <div>
+                <h3 class="font-label-bold text-label-bold uppercase mb-1">Layanan</h3>
+                <div class="flex gap-2 mt-2">
+                  <span class="bg-surface text-on-surface neubrutalism-border px-3 py-1 font-label-bold text-label-bold text-xs uppercase">Makan di tempat</span>
+                  <span class="bg-surface text-on-surface neubrutalism-border px-3 py-1 font-label-bold text-label-bold text-xs uppercase">Bawa pulang</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="neubrutalism-border neubrutalism-shadow min-h-[400px] relative overflow-hidden" style="min-height:400px;">
+          <iframe 
+            src="https://maps.google.com/maps?q=Jl.+Ngapak+Kentheng+No.36+Godean+Sleman&output=embed&z=16"
+            class="w-full h-full absolute inset-0"
+            style="border:0; min-height:400px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="TTB Godean Location">
+          </iframe>
+          
+          <!-- Floating TTB badge -->
+          <div class="absolute bottom-6 right-6 bg-surface text-on-surface neubrutalism-border p-3 neubrutalism-shadow font-label-bold text-label-bold uppercase flex items-center gap-2 z-10 pointer-events-none">
+            <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">my_location</span> 
+            TTB Godean
+          </div>
+          
+          <!-- Open Maps button -->
+          <a href="https://maps.app.goo.gl/xvGnFeNnDa6CdtbP8" 
+             target="_blank"
+             rel="noopener noreferrer"
+             class="absolute top-6 left-6 bg-primary-container text-on-primary neubrutalism-border neubrutalism-shadow p-3 flex items-center gap-2 z-10 font-label-bold text-label-bold uppercase hover:opacity-90 transition-opacity">
+            <span class="material-symbols-outlined">open_in_new</span>
+            Buka Maps
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-container text-on-secondary-container border-t-4 border-on-surface">
+      <div class="flex flex-col md:flex-row justify-between items-center w-full px-container_margin_mobile md:px-container_margin_desktop py-8 gap-gutter">
+        <div class="font-headline-md text-headline-md text-on-secondary-container uppercase font-extrabold tracking-tighter">
+          TTB.
+        </div>
+        <div class="font-label-bold text-label-bold text-center md:text-left">
+          © 2026 Teh Tarik Bakar (TTB). All rights reserved.
+        </div>
+        <div class="flex gap-6 font-label-bold text-label-bold uppercase">
+          <a class="text-on-secondary-container hover:text-on-surface hover:underline decoration-4 decoration-on-surface transition-colors" 
+             href="https://www.instagram.com/tehtarikbakar/" 
+             target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="text-on-secondary-container hover:text-on-surface hover:underline decoration-4 decoration-on-surface transition-colors" 
+             href="https://maps.app.goo.gl/xvGnFeNnDa6CdtbP8" 
+             target="_blank" rel="noopener noreferrer">Maps</a>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div class="bg-surface neubrutalism-border neubrutalism-shadow min-h-[400px] relative overflow-hidden">
-<!-- Using an image placeholder with location data attribute for a map representation -->
-<img class="w-full h-full object-cover absolute inset-0" data-alt="A stylized, top-down map view of urban streets, designed in a bold neubrutalist style. The roads are thick black lines against a flat, high-contrast off-white background. A massive, exaggerated red pin drops aggressively onto the center, casting a stark black shadow. The overall map feels graphic, loud, and modern." data-location="Godean, Sleman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_0osVk53kkPDhKJvPIaAIQJhX4HIKfweuwFveOjwnTb2V_Bcaq5BMxfZREy0O8m9WQ_g7t2_azzha0Y8zXctChK89ZNsnzPhFc7pFS_1YdUdQ3aeaTpGq12vEZjQprBRnqOpS9u_dpRKlEGkzUPbstLdxuqaVdX4rmUIer8716xKsnX29iSuviKXf1Ns_UXuDOS5tWqZWUj31UkrXxuqExr0zIZ_TX3XUzTPiAOxbcUGmLoE2Ef8c0trWHjzvH8MJhAPUjBXCf7A"/>
-<div class="absolute inset-0 bg-primary/10 mix-blend-multiply pointer-events-none"></div>
-<!-- Floating Info Badge on Map -->
-<div class="absolute bottom-6 right-6 bg-surface text-on-surface neubrutalism-border p-4 neubrutalism-shadow font-label-bold text-label-bold uppercase flex items-center gap-2">
-<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">my_location</span> TTB Godean
-                </div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-secondary-container text-on-secondary-container border-t-4 border-on-surface">
-<div class="flex flex-col md:flex-row justify-between items-center w-full px-container_margin_mobile md:px-container_margin_desktop py-8 gap-gutter">
-<div class="font-headline-md text-headline-md text-on-secondary-container uppercase font-extrabold tracking-tighter">
-                TTB.
-            </div>
-<div class="font-label-bold text-label-bold text-center md:text-left">
-                © 2026 Teh Tarik Bakar (TTB). All rights reserved.
-            </div>
-<div class="flex gap-6 font-label-bold text-label-bold uppercase">
-<a class="text-on-secondary-container hover:text-on-surface hover:underline decoration-4 decoration-on-surface transition-colors" href="#">Instagram</a>
-<a class="text-on-secondary-container hover:text-on-surface hover:underline decoration-4 decoration-on-surface transition-colors" href="#">Maps</a>
-</div>
-</div>
-</footer>
-</body></html>
+    </footer>
 
     <!-- JavaScript -->
     <script src="./app.js"></script>
   </body>
 </html>
-

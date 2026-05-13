@@ -50,65 +50,44 @@ const menuItems = [
   }
 ];
 
-// Reviews Data
-const reviews = [
+// Base reviews (static seed data)
+const baseReviews = [
   {
-    rating: 2,
+    rating: 1,
     label: "Bad Vibes",
     text: "pelayanannya ngga ramah blas...",
     author: "Anonymous",
     avatar: "A"
   },
   {
-    rating: 2,
-    label: "Ghost Town",
+    rating: 1.5,
+    label: "Bad Vibes",
     text: "kesini 2x tapi gaada yg jual...",
     author: "Budi S.",
     avatar: "B"
   },
   {
     rating: 4.5,
-    label: "Fire",
+    label: "Good Vibes",
     text: "Produk nya enak murah mantap lah pokoknya🔥",
     author: "Citra D.",
     avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBgD5VjoTVJgEcdvCMkrfZWR8Eeip4up3gh46YkhkuqMRg2i7O4QA3di7b5tn0roD8WHnZnSI827UndWw0ERJI_ZCucSAiBzeunDUIjPLY0GaZhJF3m9a6UygsaTYKqoqIPxHM0Y_kOIm2AgA8gDpqE2B4CJfT4U8QMOFwFz2de1yq0JD_QbXk9RdeF4G0xc5-AkL35lzVFmKND0fG9U7kfUcYP1Qj5NEVCnWrBzgum3cEN97e41YtqlLZYWIIe9OH-QQ_Pn2Xnyyo"
   }
 ];
 
-// About content
-const aboutContent = `
-  <div class="space-y-12">
-    <div class="flex flex-col md:flex-row justify-between items-end border-b-4 border-on-surface pb-4">
-      <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">Tentang Kami</h2>
-    </div>
-    
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div class="space-y-6">
-        <div class="inline-block bg-secondary text-on-secondary px-4 py-2 font-label-bold text-label-bold uppercase neubrutalism-border w-max">
-          The Origin
-        </div>
-        <h3 class="font-display-xl text-display-xl text-on-surface uppercase leading-none">
-          STREET TEA,<br/>REIMAGINED.
-        </h3>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-          Teh Tarik Bakar (TTB) brings the authentic sensation of "burned" tea to Godean. 
-          We aren't just pouring tea; we are crafting an experience. We serve traditional 
-          street-side tea with a loud, modern kick, respecting heritage while embracing 
-          the energy of today.
-        </p>
-      </div>
-      
-      <div class="aspect-square relative neubrutalism-border neubrutalism-shadow bg-surface-container overflow-hidden">
-        <img class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500" 
-             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn6yex3JbvZOcaI4wGzpHtHYerC5-nzPTAxB6f_MJg7dk0eDFfq5mQW-FYtq9lB9_5PJ6KtuAq7eOZn4fAxdflfNE1xI2iAPo0pwowG1mQrGBTe3acKYMVJNw-i3IJCyshLiI27qG89az6vO8jm8qfM1JU-Fn3cH77kDrDnu85lHJvvCeW3Bh3Cd60JwcupHTBHEraLrVPoMptdgd-9d7Bx14xZI_cXAxKaHDbvGNTT6ilDoVHB1KRI_C7UN2r8zx7w3ogqCgEthY"
-             alt="Barista pulling tea over fire">
-        <div class="absolute bottom-4 right-4 bg-primary text-on-primary p-4 neubrutalism-border rotate-3 neubrutalism-shadow">
-          <span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
-        </div>
-      </div>
-    </div>
-  </div>
-`;
+// Get label based on rating
+function getVibeLabel(rating) {
+  if (rating >= 4) return "Good Vibes";
+  if (rating <= 2) return "Bad Vibes";
+  return "Normal Vibes";
+}
+
+// Get label color classes based on vibe
+function getVibeLabelClasses(label) {
+  if (label === "Good Vibes") return "bg-tertiary-fixed-dim text-on-background";
+  if (label === "Bad Vibes") return "bg-error text-on-error";
+  return "bg-outline text-surface";
+}
 
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -116,34 +95,40 @@ document.addEventListener('DOMContentLoaded', function() {
   initDarkMode();
   renderMenu();
   renderReviews();
-  renderAbout();
-  
-  // Smooth scrolling for navigation links
+  renderRatingSummary();
+  initActionButtons();
   initSmoothScroll();
 });
 
 // Dark Mode Toggle
 function initDarkMode() {
   const toggle = document.getElementById('darkModeToggle');
+  
+  // Apply saved preference on load
+  const savedDarkMode = localStorage.getItem('ttb_darkMode');
+  if (savedDarkMode === 'true') {
+    document.documentElement.classList.add('dark');
+    const icon = toggle ? toggle.querySelector('span') : null;
+    if (icon) icon.textContent = 'light_mode';
+  }
+
   if (toggle) {
     toggle.addEventListener('click', function() {
-      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.toggle('dark');
       const icon = this.querySelector('span');
-      if (document.documentElement.classList.contains('dark')) {
-        icon.textContent = 'light_mode';
-      } else {
-        icon.textContent = 'dark_mode';
-      }
+      icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+      localStorage.setItem('ttb_darkMode', isDark);
     });
   }
 }
 
-// Render Menu
+// Render Menu — cards are grayscale by default, color on hover (CSS handles it)
 function renderMenu() {
   const menuContainer = document.querySelector('#menu .grid');
+  if (!menuContainer) return;
   menuContainer.innerHTML = menuItems.map(item => `
-    <article class="bg-surface neubrutalism-border neubrutalism-shadow flex flex-col hover:-translate-y-2 transition-transform">
-      <div class="h-full ${item.bgColor} border-b-4 border-on-surface p-4 relative overflow-hidden flex justify-center items-center">
+    <article class="menu-card bg-surface neubrutalism-border neubrutalism-shadow flex flex-col">
+      <div class="h-48 ${item.bgColor} border-b-4 border-on-surface p-4 relative overflow-hidden flex justify-center items-center">
         <img class="w-full h-full object-cover" src="${item.image}" alt="${item.name}">
       </div>
       <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -163,37 +148,53 @@ function renderMenu() {
   `).join('');
 }
 
-// Render Reviews
+// Render Reviews — reads from localStorage for persisted user reviews + base reviews
 function renderReviews() {
-  const reviewsSection = document.querySelector('#reviews');
   const reviewsGrid = document.querySelector('#reviewsGrid');
+  if (!reviewsGrid) return;
 
-  // Bersihkan container agar tidak dobel saat render ulang
-  if (reviewsGrid) reviewsGrid.innerHTML = '';
-
-  const pendingRaw = localStorage.getItem('ttb_pending_review');
-  let pending = null;
+  // Load persisted user reviews from localStorage
+  let userReviews = [];
   try {
-    pending = pendingRaw ? JSON.parse(pendingRaw) : null;
+    const stored = localStorage.getItem('ttb_all_reviews');
+    userReviews = stored ? JSON.parse(stored) : [];
   } catch (e) {
-    pending = null;
+    userReviews = [];
   }
 
-  if (pending && pending.text) {
-    reviews.unshift({
-      rating: pending.rating || 0,
-      label: pending.category || 'Review',
-      text: pending.text,
-      author: 'You',
-      avatar: 'YOU'
-    });
-    localStorage.removeItem('ttb_pending_review');
+  // Check for a newly submitted pending review from ulasan.html
+  try {
+    const pendingRaw = localStorage.getItem('ttb_pending_review');
+    if (pendingRaw) {
+      const pending = JSON.parse(pendingRaw);
+      if (pending && pending.text) {
+        const label = getVibeLabel(pending.rating || 0);
+        userReviews.unshift({
+          rating: pending.rating || 0,
+          label: label,
+          text: pending.text,
+          author: pending.author || 'Anonymous',
+          avatar: (pending.author || 'Anonymous').charAt(0).toUpperCase()
+        });
+        // Save accumulated user reviews back
+        localStorage.setItem('ttb_all_reviews', JSON.stringify(userReviews));
+        localStorage.removeItem('ttb_pending_review');
+        // Update rating badge now that a new review was added
+        renderRatingSummary();
+      }
+    }
+  } catch (e) {
+    // ignore
   }
 
-  const allReviews = reviews;
-  const reviewsHTML = allReviews.map(review => {
+  // Combine: user reviews first, then base
+  const allReviews = [...userReviews, ...baseReviews];
 
-    const stars = Array(5).fill().map((_, i) => {
+  reviewsGrid.innerHTML = allReviews.map(review => {
+    const label = review.label || getVibeLabel(review.rating);
+    const labelClasses = getVibeLabelClasses(label);
+
+    const stars = Array(5).fill(null).map((_, i) => {
       if (i < Math.floor(review.rating)) {
         return '<span class="material-symbols-outlined" style="font-variation-settings: \'FILL\' 1;">star</span>';
       } else if (i < review.rating) {
@@ -203,62 +204,157 @@ function renderReviews() {
       }
     }).join('');
 
-    const avatar = review.avatar.startsWith('http') 
-      ? `<img src="${review.avatar}" alt="${review.author}" class="w-10 h-10 border-2 border-on-surface rounded-full">`
-      : `<div class="w-10 h-10 bg-on-surface rounded-full flex items-center justify-center text-on-primary font-label-bold text-label-bold">${review.avatar}</div>`;
+    const avatar = typeof review.avatar === 'string' && review.avatar.startsWith('http')
+      ? `<img src="${review.avatar}" alt="${review.author}" class="w-10 h-10 border-2 border-on-surface rounded-full object-cover">`
+      : `<div class="w-10 h-10 bg-on-surface rounded-full flex items-center justify-center text-on-primary font-label-bold text-label-bold">${review.avatar || '?'}</div>`;
 
     return `
-      <div class="bg-surface neubrutalism-border p-6 relative">
+      <div class="bg-surface neubrutalism-border p-6 relative flex flex-col gap-4">
         <div class="flex justify-between items-start border-b-4 border-on-surface pb-4">
           <div class="flex gap-1 text-error">
             ${stars}
           </div>
-          <span class="font-label-bold text-label-bold uppercase bg-error text-on-error neubrutalism-border px-2 py-1">Bad Vibes</span>
+          <span class="font-label-bold text-label-bold uppercase ${labelClasses} neubrutalism-border px-2 py-1">${label}</span>
         </div>
-        <p class="font-body-lg text-body-lg italic">${review.text}</p>
-        <div class="mt-auto pt-4 flex items-center gap-3">
+        <p class="font-body-lg text-body-lg italic flex-1">"${review.text}"</p>
+        <div class="mt-auto pt-2 flex items-center gap-3">
           ${avatar}
           <span class="font-label-bold text-label-bold uppercase">${review.author}</span>
         </div>
       </div>
     `;
   }).join('');
+}
 
-  if (reviewsGrid) {
-    reviewsGrid.innerHTML = `
-      ${reviewsHTML}
-    `;
-  } else {
-    reviewsSection.innerHTML += `
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="reviewsGridFallback">
-        ${reviewsHTML}
-      </div>
-    `;
+// Render Rating Summary — calculates average from all reviews (base + user)
+function renderRatingSummary() {
+  const el = document.getElementById('ratingSummary');
+  if (!el) return;
+
+  // Load user reviews from localStorage
+  let userReviews = [];
+  try {
+    const stored = localStorage.getItem('ttb_all_reviews');
+    userReviews = stored ? JSON.parse(stored) : [];
+  } catch (e) {
+    userReviews = [];
+  }
+
+  const allReviews = [...userReviews, ...baseReviews];
+  const count = allReviews.length;
+
+  if (count === 0) {
+    el.textContent = 'Belum ada ulasan';
+    return;
+  }
+
+  const total = allReviews.reduce((sum, r) => sum + (Number(r.rating) || 0), 0);
+  const avg = (total / count).toFixed(1);
+
+  el.textContent = `${avg} / 5.0 Rating (${count} Reviews)`;
+}
+
+
+function initActionButtons() {
+  // Rute → open Google Maps
+  const btnRute = document.getElementById('btnRute');
+  if (btnRute) {
+    btnRute.addEventListener('click', function() {
+      window.open('https://maps.app.goo.gl/xvGnFeNnDa6CdtbP8', '_blank');
+    });
+  }
+
+  // Simpan → bookmark toggle (visual feedback)
+  const btnSimpan = document.getElementById('btnSimpan');
+  if (btnSimpan) {
+    const simpanIcon = document.getElementById('simpanIcon');
+    const isSaved = localStorage.getItem('ttb_saved') === 'true';
+    if (isSaved && simpanIcon) {
+      simpanIcon.textContent = 'bookmark_added';
+      btnSimpan.classList.add('bg-tertiary-fixed-dim');
+    }
+    btnSimpan.addEventListener('click', function() {
+      const saved = localStorage.getItem('ttb_saved') === 'true';
+      if (!saved) {
+        localStorage.setItem('ttb_saved', 'true');
+        if (simpanIcon) simpanIcon.textContent = 'bookmark_added';
+        btnSimpan.classList.add('bg-tertiary-fixed-dim');
+        showToast('Tersimpan! ✅');
+      } else {
+        localStorage.setItem('ttb_saved', 'false');
+        if (simpanIcon) simpanIcon.textContent = 'bookmark';
+        btnSimpan.classList.remove('bg-tertiary-fixed-dim');
+        showToast('Dihapus dari simpanan');
+      }
+    });
+  }
+
+  // Bagikan → Web Share API or fallback copy link
+  const btnBagikan = document.getElementById('btnBagikan');
+  if (btnBagikan) {
+    btnBagikan.addEventListener('click', function() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Teh Tarik Bakar - Godean',
+          text: 'Coba teh otentik dengan sensasi bakar di TTB Godean! Tarik. Bakar. Nikmat.',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        // Fallback: copy URL to clipboard
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          showToast('Link disalin ke clipboard! 📋');
+        }).catch(() => {
+          showToast('Bagikan: ' + window.location.href);
+        });
+      }
+    });
   }
 }
 
-// Render About
-function renderAbout() {
-  document.querySelector('#about').innerHTML = aboutContent;
+// Simple toast notification
+function showToast(message) {
+  const existing = document.getElementById('ttb-toast');
+  if (existing) existing.remove();
+
+  const toast = document.createElement('div');
+  toast.id = 'ttb-toast';
+  toast.textContent = message;
+  toast.style.cssText = `
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1c1b1b;
+    color: #fcf9f8;
+    padding: 12px 24px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border: 4px solid #fcf9f8;
+    z-index: 9999;
+    white-space: nowrap;
+    box-shadow: 4px 4px 0px 0px #fcf9f8;
+  `;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
 }
 
 // Smooth scrolling for navigation
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+      const target = document.querySelector(href);
       if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 }
 
-// Intersection Observer for animations
+// Intersection Observer for fade-in animations
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
@@ -273,7 +369,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe menu items and sections
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.neubrutalism-border').forEach(el => {
     el.style.opacity = '0';

@@ -1,379 +1,386 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Write a Review - TEH TARIK BAKAR</title>
+<title>Tulis Ulasan - Teh Tarik Bakar</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;800;900&amp;family=Space+Grotesk:wght@700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;800;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
   tailwind.config = {
     darkMode: "class",
     theme: {
       extend: {
-        "colors": {
-                "secondary-fixed": "#ffdad6",
-                "secondary": "#b6171e",
-                "secondary-fixed-dim": "#ffb3ac",
-                "on-tertiary": "#ffffff",
-                "on-secondary-fixed-variant": "#930010",
-                "surface-bright": "#fcf9f8",
-                "surface-container": "#f0eded",
-                "primary": "#b02f00",
-                "on-background": "#1c1b1b",
-                "on-surface-variant": "#5b4039",
-                "outline-variant": "#e4beb4",
-                "secondary-container": "#da3433",
-                "on-tertiary-container": "#372700",
-                "surface-variant": "#e5e2e1",
-                "surface-tint": "#b02f00",
-                "surface-container-low": "#f6f3f2",
-                "on-tertiary-fixed-variant": "#5b4300",
-                "inverse-surface": "#313030",
-                "primary-container": "#ff5722",
-                "on-primary-container": "#541200",
-                "surface": "#fcf9f8",
-                "on-primary": "#ffffff",
-                "on-surface": "#1c1b1b",
-                "error-container": "#ffdad6",
-                "surface-container-lowest": "#ffffff",
-                "on-primary-fixed": "#3b0900",
-                "tertiary-fixed": "#ffdf9e",
-                "on-tertiary-fixed": "#261a00",
-                "on-primary-fixed-variant": "#862200",
-                "primary-fixed-dim": "#ffb5a0",
-                "surface-container-high": "#eae7e7",
-                "tertiary-fixed-dim": "#fabd00",
-                "on-secondary-container": "#fffbff",
-                "on-secondary-fixed": "#410003",
-                "background": "#fcf9f8",
-                "primary-fixed": "#ffdbd1",
-                "tertiary": "#785900",
-                "on-error": "#ffffff",
-                "surface-container-highest": "#e5e2e1",
-                "inverse-on-surface": "#f3f0ef",
-                "error": "#ba1a1a",
-                "on-secondary": "#ffffff",
-                "inverse-primary": "#ffb5a0",
-                "on-error-container": "#93000a",
-                "tertiary-container": "#b78a00",
-                "surface-dim": "#dcd9d9",
-                "outline": "#907067"
+        colors: {
+          "secondary-fixed": "#ffdad6",
+          "secondary": "#b6171e",
+          "secondary-fixed-dim": "#ffb3ac",
+          "on-tertiary": "#ffffff",
+          "on-secondary-fixed-variant": "#930010",
+          "surface-bright": "#fcf9f8",
+          "surface-container": "#f0eded",
+          "primary": "#b02f00",
+          "on-background": "#1c1b1b",
+          "on-surface-variant": "#5b4039",
+          "outline-variant": "#e4beb4",
+          "secondary-container": "#da3433",
+          "on-tertiary-container": "#372700",
+          "surface-variant": "#e5e2e1",
+          "surface-tint": "#b02f00",
+          "surface-container-low": "#f6f3f2",
+          "on-tertiary-fixed-variant": "#5b4300",
+          "inverse-surface": "#313030",
+          "primary-container": "#ff5722",
+          "on-primary-container": "#541200",
+          "surface": "#fcf9f8",
+          "on-primary": "#ffffff",
+          "on-surface": "#1c1b1b",
+          "error-container": "#ffdad6",
+          "surface-container-lowest": "#ffffff",
+          "on-primary-fixed": "#3b0900",
+          "tertiary-fixed": "#ffdf9e",
+          "on-tertiary-fixed": "#261a00",
+          "on-primary-fixed-variant": "#862200",
+          "primary-fixed-dim": "#ffb5a0",
+          "surface-container-high": "#eae7e7",
+          "tertiary-fixed-dim": "#fabd00",
+          "on-secondary-container": "#fffbff",
+          "on-secondary-fixed": "#410003",
+          "background": "#fcf9f8",
+          "primary-fixed": "#ffdbd1",
+          "tertiary": "#785900",
+          "on-error": "#ffffff",
+          "error": "#ba1a1a",
+          "surface-container-highest": "#e5e2e1",
+          "inverse-on-surface": "#f3f0ef",
+          "on-secondary": "#ffffff",
+          "inverse-primary": "#ffb5a0",
+          "on-error-container": "#93000a",
+          "tertiary-container": "#b78a00",
+          "surface-dim": "#dcd9d9",
+          "outline": "#907067"
         },
-        "borderRadius": {
-                "DEFAULT": "0.25rem",
-                "lg": "0.5rem",
-                "xl": "0.75rem",
-                "full": "9999px"
+        borderRadius: {
+          DEFAULT: "0.25rem",
+          lg: "0.5rem",
+          xl: "0.75rem",
+          full: "9999px"
         },
-        "spacing": {
-                "container_margin_desktop": "40px",
-                "container_margin_mobile": "20px",
-                "gutter": "24px",
-                "border_width": "4px",
-                "base_unit": "4px",
-                "shadow_offset": "8px"
+        spacing: {
+          "container_margin_desktop": "40px",
+          "container_margin_mobile": "20px",
+          "gutter": "24px",
+          "border_width": "4px",
+          "base_unit": "4px",
+          "shadow_offset": "8px"
         },
-        "fontFamily": {
-                "headline-md": [
-                        "Lexend"
-                ],
-                "body-lg": [
-                        "Lexend"
-                ],
-                "body-md": [
-                        "Lexend"
-                ],
-                "label-bold": [
-                        "Space Grotesk"
-                ],
-                "headline-lg": [
-                        "Lexend"
-                ],
-                "display-xl": [
-                        "Lexend"
-                ],
-                "headline-lg-mobile": [
-                        "Lexend"
-                ]
+        fontFamily: {
+          "headline-md": ["Lexend"],
+          "body-lg": ["Lexend"],
+          "body-md": ["Lexend"],
+          "label-bold": ["Space Grotesk"],
+          "headline-lg": ["Lexend"],
+          "display-xl": ["Lexend"],
+          "headline-lg-mobile": ["Lexend"]
         },
-        "fontSize": {
-                "headline-md": [
-                        "28px",
-                        {
-                                "lineHeight": "1.3",
-                                "fontWeight": "700"
-                        }
-                ],
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "1.6",
-                                "fontWeight": "500"
-                        }
-                ],
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "1.5",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-bold": [
-                        "14px",
-                        {
-                                "lineHeight": "1.2",
-                                "fontWeight": "700"
-                        }
-                ],
-                "headline-lg": [
-                        "40px",
-                        {
-                                "lineHeight": "1.2",
-                                "fontWeight": "800"
-                        }
-                ],
-                "display-xl": [
-                        "64px",
-                        {
-                                "lineHeight": "1.1",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "900"
-                        }
-                ],
-                "headline-lg-mobile": [
-                        "32px",
-                        {
-                                "lineHeight": "1.2",
-                                "fontWeight": "800"
-                        }
-                ]
+        fontSize: {
+          "headline-md": ["28px", { lineHeight: "1.3", fontWeight: "700" }],
+          "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "500" }],
+          "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+          "label-bold": ["14px", { lineHeight: "1.2", fontWeight: "700" }],
+          "headline-lg": ["40px", { lineHeight: "1.2", fontWeight: "800" }],
+          "display-xl": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+          "headline-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "800" }]
         }
-},
-    },
+      }
+    }
+  };
+</script>
+
+<!-- Sync dark mode before render to avoid flash -->
+<script>
+  if (localStorage.getItem('ttb_darkMode') === 'true') {
+    document.documentElement.classList.add('dark');
   }
 </script>
-<script>
-        let currentRating = 0;
 
-        function setRating(n) {
-            currentRating = n;
-            document.getElementById('ratingValue').value = n;
-            const stars = document.querySelectorAll('#star-rating-container .star-btn span');
-            stars.forEach((star, index) => {
-                if (index < n) {
-                    star.style.fontVariationSettings = "'FILL' 1, 'wght' 700";
-                    star.parentElement.classList.add('text-primary');
-                    star.parentElement.classList.remove('text-on-surface-variant');
-                } else {
-                    star.style.fontVariationSettings = "'FILL' 0, 'wght' 700";
-                    star.parentElement.classList.remove('text-primary');
-                    star.parentElement.classList.add('text-on-surface-variant');
-                }
-            });
-            updatePreview();
-        }
-
-        function updatePreview() {
-            const categoryEl = document.getElementById('category');
-            const dateEl = document.getElementById('visitDate');
-            const commentEl = document.getElementById('comment');
-
-            const previewCategory = document.getElementById('previewCategory');
-            const previewDate = document.getElementById('previewDate');
-            const previewComment = document.getElementById('previewComment');
-            const previewRating = document.getElementById('previewRating');
-
-            previewCategory.textContent = categoryEl.options[categoryEl.selectedIndex].text !== "Select Category..." ? categoryEl.options[categoryEl.selectedIndex].text : "None Selected";
-            previewDate.textContent = dateEl.value ? new Date(dateEl.value).toLocaleDateString() : "No Date Set";
-            previewComment.textContent = commentEl.value || "No comments provided yet.";
-            
-            // Update Rating Preview
-            previewRating.innerHTML = '';
-            if (currentRating === 0) {
-                previewRating.textContent = 'None';
-                previewRating.classList.add('text-sm', 'italic', 'text-on-surface-variant');
-            } else {
-                previewRating.classList.remove('text-sm', 'italic', 'text-on-surface-variant');
-                for (let i = 0; i < currentRating; i++) {
-                    previewRating.innerHTML += '<span class="material-symbols-outlined">local_fire_department</span>';
-                }
-            }
-        }
-        
-        // Add event listeners for real-time update
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('category').addEventListener('change', updatePreview);
-            document.getElementById('visitDate').addEventListener('change', updatePreview);
-            document.getElementById('comment').addEventListener('input', updatePreview);
-
-            // Initial call
-            updatePreview();
-        });
-    </script>
 <style>
-        body {
-            background-image: radial-gradient(circle, #e5e2e1 2px, transparent 2px);
-            background-size: 24px 24px;
-            background-color: #fcf9f8;
-        }
-    </style>
-</head>
-<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
-<!-- TopNavBar -->
-<nav class="flex justify-between items-center px-container_margin_mobile md:px-container_margin_desktop h-20 z-50 bg-surface dark:bg-on-background w-full sticky top-0 border-b-4 border-on-background dark:border-outline-variant shadow-[8px_8px_0px_0px_#1c1b1b] dark:shadow-[8px_8px_0px_0px_#fcf9f8]">
-<div class="font-headline-lg text-headline-lg font-black uppercase text-primary dark:text-primary-fixed-dim tracking-tighter">
-            TEH TARIK BAKAR
-        </div>
-<ul class="hidden md:flex gap-4">
-<li><a class="text-on-background dark:text-surface font-label-bold uppercase px-4 py-1 hover:bg-primary hover:text-on-primary hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1c1b1b] transition-all" href="#">Home</a></li>
-<li><a class="text-on-background dark:text-surface font-label-bold uppercase px-4 py-1 hover:bg-primary hover:text-on-primary hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1c1b1b] transition-all" href="#">Menu</a></li>
-<li><a class="bg-tertiary-container text-on-tertiary-container border-4 border-on-background dark:border-white px-4 py-1 translate-x-1 translate-y-1 shadow-none font-label-bold uppercase" href="#">Reviews</a></li>
-<li><a class="text-on-background dark:text-surface font-label-bold uppercase px-4 py-1 hover:bg-primary hover:text-on-primary hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1c1b1b] transition-all" href="#">About</a></li>
-</ul>
-<div class="flex items-center gap-4">
-<button class="text-primary dark:text-primary-fixed-dim hover:bg-primary hover:text-on-primary hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1c1b1b] transition-all p-2 rounded-none border-0 active:translate-x-1 active:translate-y-1 active:shadow-none duration-100">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dark_mode</span>
-</button>
-</div>
-</nav>
-<!-- Main Content Canvas -->
-<main class="flex-grow p-container_margin_mobile md:p-container_margin_desktop max-w-7xl mx-auto w-full">
-<div class="mb-12">
-<h1 class="font-display-xl text-display-xl mb-4 uppercase inline-block bg-primary-container text-on-background border-4 border-on-background shadow-[8px_8px_0px_0px_#1c1b1b] px-4 py-2">Drop The Heat</h1>
-<p class="font-headline-md text-headline-md max-w-2xl bg-surface border-4 border-on-background shadow-[8px_8px_0px_0px_#1c1b1b] p-4 mt-6">Tell us about your latest Bakar experience. Don't hold back.</p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-<!-- Review Form -->
-<div class="lg:col-span-7 bg-surface border-4 border-on-background shadow-[12px_12px_0px_0px_#1c1b1b] p-8">
-<form class="flex flex-col gap-8" id="reviewForm">
-<div class="flex flex-col gap-2">
-<label class="font-label-bold text-label-bold uppercase bg-secondary text-on-secondary self-start px-2 py-1 border-2 border-on-background" for="category">Rating Category</label>
-<div class="relative">
-<select class="w-full appearance-none bg-surface border-4 border-on-background p-4 font-body-lg text-body-lg focus:outline-none focus:border-primary focus:shadow-[inset_4px_4px_0px_0px_rgba(0,0,0,0.1)] transition-all" id="category">
-<option disabled="" selected="" value="">Select Category...</option>
-<option value="Taste">Taste &amp; Flavor</option>
-<option value="Service">Speed &amp; Service</option>
-<option value="Ambiance">Street Vibe (Ambiance)</option>
-<option value="Price">Value (Price)</option>
-</select>
-<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">arrow_drop_down</span>
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-bold text-label-bold uppercase bg-tertiary-container text-on-background self-start px-2 py-1 border-2 border-on-background" for="visitDate">Visit Date</label>
-<input class="w-full bg-surface border-4 border-on-background p-4 font-body-lg text-body-lg focus:outline-none focus:border-primary focus:shadow-[inset_4px_4px_0px_0px_rgba(0,0,0,0.1)] transition-all" id="visitDate" type="date"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-bold text-label-bold uppercase bg-tertiary text-on-tertiary self-start px-2 py-1 border-2 border-on-background" for="star-rating">Heat Level (Rating)</label>
-<div class="flex gap-2 items-center" id="star-rating-container">
-<button class="star-btn text-4xl text-on-surface-variant hover:text-primary transition-colors focus:outline-none" onclick="setRating(1)" type="button">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 700;">star</span>
-</button>
-<button class="star-btn text-4xl text-on-surface-variant hover:text-primary transition-colors focus:outline-none" onclick="setRating(2)" type="button">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 700;">star</span>
-</button>
-<button class="star-btn text-4xl text-on-surface-variant hover:text-primary transition-colors focus:outline-none" onclick="setRating(3)" type="button">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 700;">star</span>
-</button>
-<button class="star-btn text-4xl text-on-surface-variant hover:text-primary transition-colors focus:outline-none" onclick="setRating(4)" type="button">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 700;">star</span>
-</button>
-<button class="star-btn text-4xl text-on-surface-variant hover:text-primary transition-colors focus:outline-none" onclick="setRating(5)" type="button">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 700;">star</span>
-</button>
-<input id="ratingValue" type="hidden" value="0"/>
-</div>
-</div><div class="flex flex-col gap-2">
-<label class="font-label-bold text-label-bold uppercase bg-primary-fixed-dim text-on-background self-start px-2 py-1 border-2 border-on-background" for="comment">The Verdict</label>
-<textarea class="w-full bg-surface border-4 border-on-background p-4 font-body-lg text-body-lg focus:outline-none focus:border-primary focus:shadow-[inset_4px_4px_0px_0px_rgba(0,0,0,0.1)] transition-all resize-y" id="comment" placeholder="Spill the tea..." rows="5"></textarea>
-</div>
-<button class="bg-primary text-on-primary font-headline-md text-headline-md uppercase border-4 border-on-background py-4 px-8 shadow-[8px_8px_0px_0px_#1c1b1b] hover:shadow-[12px_12px_0px_0px_#1c1b1b] hover:-translate-y-1 hover:-translate-x-1 active:shadow-none active:translate-y-2 active:translate-x-2 transition-all mt-4 self-start flex items-center gap-2" onclick="burnIt()" type="button" id="burnItBtn">
-                        Burn It <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
-                    </button>
+  body {
+    background-image: radial-gradient(circle, #e5e2e1 2px, transparent 2px);
+    background-size: 24px 24px;
+    background-color: #fcf9f8;
+  }
+  .dark body {
+    background-color: #1c1b1b;
+    background-image: radial-gradient(circle, #313030 2px, transparent 2px);
+  }
+  .neubrutalism-border { border: 4px solid #1c1b1b !important; }
+  .dark .neubrutalism-border { border-color: #f3f0ef !important; }
+</style>
 
 <script>
-  // Pindahkan data review ke index.html via localStorage
+  let currentRating = 0;
+
+  function setRating(n) {
+    currentRating = n;
+    document.getElementById('ratingValue').value = n;
+    const stars = document.querySelectorAll('#star-rating-container .star-btn span');
+    stars.forEach((star, index) => {
+      if (index < n) {
+        star.style.fontVariationSettings = "'FILL' 1, 'wght' 700";
+        star.parentElement.classList.add('text-primary');
+        star.parentElement.classList.remove('text-on-surface-variant');
+      } else {
+        star.style.fontVariationSettings = "'FILL' 0, 'wght' 700";
+        star.parentElement.classList.remove('text-primary');
+        star.parentElement.classList.add('text-on-surface-variant');
+      }
+    });
+    updatePreview();
+  }
+
+  function updatePreview() {
+    const categoryEl = document.getElementById('category');
+    const dateEl = document.getElementById('visitDate');
+    const commentEl = document.getElementById('comment');
+    const nameEl = document.getElementById('authorName');
+
+    const previewCategory = document.getElementById('previewCategory');
+    const previewDate = document.getElementById('previewDate');
+    const previewComment = document.getElementById('previewComment');
+    const previewRating = document.getElementById('previewRating');
+    const previewName = document.getElementById('previewName');
+
+    if (previewCategory) previewCategory.textContent = categoryEl.selectedIndex > 0 ? categoryEl.options[categoryEl.selectedIndex].text : 'None Selected';
+    if (previewDate) previewDate.textContent = dateEl.value ? new Date(dateEl.value + 'T00:00:00').toLocaleDateString('id-ID') : 'Belum dipilih';
+    if (previewComment) previewComment.textContent = commentEl.value || 'Belum ada komentar...';
+    if (previewName) previewName.textContent = (nameEl && nameEl.value.trim()) ? nameEl.value.trim() : 'Anonim';
+
+    if (previewRating) {
+      previewRating.innerHTML = '';
+      if (currentRating === 0) {
+        previewRating.textContent = 'Belum dipilih';
+        previewRating.classList.add('text-sm', 'italic', 'text-on-surface-variant');
+      } else {
+        previewRating.classList.remove('text-sm', 'italic', 'text-on-surface-variant');
+        for (let i = 0; i < currentRating; i++) {
+          previewRating.innerHTML += '<span class="material-symbols-outlined" style="font-variation-settings: \'FILL\' 1;">local_fire_department</span>';
+        }
+      }
+    }
+  }
+
   function burnIt() {
     const categoryEl = document.getElementById('category');
     const visitDateEl = document.getElementById('visitDate');
     const commentEl = document.getElementById('comment');
     const ratingValueEl = document.getElementById('ratingValue');
+    const nameEl = document.getElementById('authorName');
+
+    const text = commentEl ? commentEl.value.trim() : '';
+    if (!text) {
+      alert('Tulis ulasanmu dulu! Jangan malu-malu 🔥');
+      return;
+    }
+    if (currentRating === 0) {
+      alert('Kasih rating dulu bro!');
+      return;
+    }
+
+    const author = (nameEl && nameEl.value.trim()) ? nameEl.value.trim() : 'Anonim';
+    const rating = ratingValueEl ? Number(ratingValueEl.value || 0) : 0;
+    const category = categoryEl && categoryEl.selectedIndex > 0 ? categoryEl.options[categoryEl.selectedIndex].value : '';
 
     const payload = {
-      category: categoryEl && categoryEl.selectedIndex >= 0 ? (categoryEl.options[categoryEl.selectedIndex].value || '') : '',
+      category,
       visitDate: visitDateEl ? visitDateEl.value : '',
-      rating: ratingValueEl ? Number(ratingValueEl.value || 0) : 0,
-      text: commentEl ? (commentEl.value || '').trim() : ''
+      rating,
+      text,
+      author
     };
 
-    // Simpan ke localStorage agar dibaca oleh app.js di halaman utama
     localStorage.setItem('ttb_pending_review', JSON.stringify(payload));
-
-    // Kembali ke halaman utama
     window.location.href = './index.html#reviews';
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('category').addEventListener('change', updatePreview);
+    document.getElementById('visitDate').addEventListener('change', updatePreview);
+    document.getElementById('comment').addEventListener('input', updatePreview);
+    const nameEl = document.getElementById('authorName');
+    if (nameEl) nameEl.addEventListener('input', updatePreview);
+    updatePreview();
+
+    // Dark mode toggle
+    const toggle = document.getElementById('darkModeToggle');
+    if (toggle) {
+      const icon = toggle.querySelector('span');
+      if (document.documentElement.classList.contains('dark')) {
+        icon.textContent = 'light_mode';
+      }
+      toggle.addEventListener('click', function() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+        localStorage.setItem('ttb_darkMode', isDark);
+      });
+    }
+  });
 </script>
-</form>
-</div>
-<!-- Live Preview / Summary Card -->
-<div class="lg:col-span-5 sticky top-28">
-<div class="bg-surface-container border-4 border-on-background shadow-[8px_8px_0px_0px_#1c1b1b] relative overflow-hidden">
-<!-- Decorative Tape/Header -->
-<div class="bg-tertiary-fixed-dim border-b-4 border-on-background p-4 flex items-center justify-between">
-<h2 class="font-headline-md text-headline-md uppercase flex items-center gap-2">
-<span class="material-symbols-outlined">receipt_long</span> 
-                            Review Receipt
-                        </h2>
-</div>
-<div class="p-8 flex flex-col gap-6">
-<div>
-<span class="font-label-bold text-label-bold text-on-surface-variant uppercase block mb-1">Vibe Check (Category)</span>
-<div class="font-headline-lg text-headline-lg min-h-[48px] border-b-4 border-on-background pb-2 text-primary-container" id="previewCategory">
-<!-- JS injected category -->
-</div>
-</div>
-<div>
-<span class="font-label-bold text-label-bold text-on-surface-variant uppercase block mb-1">Date of Incident</span>
-<div class="font-body-lg text-body-lg min-h-[28px] border-b-4 border-on-background border-dashed pb-2" id="previewDate">
-<!-- JS injected date -->
-</div>
-</div><div>
-<span class="font-label-bold text-label-bold text-on-surface-variant uppercase block mb-1">Heat Rating</span>
-<div class="font-headline-md text-headline-md min-h-[36px] border-b-4 border-on-background border-dotted pb-2 flex gap-1 text-primary" id="previewRating">
-<!-- Star rating preview -->
-</div>
-</div>
-<div>
-<span class="font-label-bold text-label-bold text-on-surface-variant uppercase block mb-1">The Word</span>
-<div class="font-body-md text-body-md min-h-[100px] bg-surface p-4 border-4 border-on-background shadow-[4px_4px_0px_0px_#1c1b1b]" id="previewComment">
-<!-- JS injected comment -->
-</div>
-</div>
-</div>
-<!-- Decorative Footer -->
-<div class="bg-on-background text-surface p-2 text-center font-label-bold text-label-bold uppercase text-xs tracking-widest">
-                        Preview Mode • Not Submitted
-                    </div>
-</div>
-</div>
-</div>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+
+<!-- NavBar -->
+<nav class="flex justify-between items-center px-container_margin_mobile md:px-container_margin_desktop h-20 z-50 bg-surface w-full sticky top-0 border-b-4 border-on-background shadow-[8px_8px_0px_0px_#1c1b1b]">
+  <a href="./index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgD5VjoTVJgEcdvCMkrfZWR8Eeip4up3gh46YkhkuqMRg2i7O4QA3di7b5tn0roD8WHnZnSI827UndWw0ERJI_ZCucSAiBzeunDUIjPLY0GaZhJF3m9a6UygsaTYKqoqIPxHM0Y_kOIm2AgA8gDpqE2B4CJfT4U8QMOFwFz2de1yq0JD_QbXk9RdeF4G0xc5-AkL35lzVFmKND0fG9U7kfUcYP1Qj5NEVCnWrBzgum3cEN97e41YtqlLZYWIIe9OH-QQ_Pn2Xnyyo"
+         alt="TTB Logo" class="w-10 h-10 object-contain rounded-sm border-2 border-on-surface">
+    <span class="font-headline-lg text-headline-lg font-black uppercase text-primary tracking-tighter">Teh Tarik Bakar</span>
+  </a>
+
+  <ul class="hidden md:flex gap-4">
+    <li><a class="text-on-background font-label-bold uppercase px-4 py-1 hover:bg-primary hover:text-on-primary hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1c1b1b] transition-all" href="./index.html#home">Home</a></li>
+    <li><a class="text-on-background font-label-bold uppercase px-4 py-1 hover:bg-primary hover:text-on-primary hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1c1b1b] transition-all" href="./index.html#menu">Menu</a></li>
+    <li><a class="bg-tertiary-container text-on-tertiary-container border-4 border-on-background px-4 py-1 font-label-bold uppercase" href="./index.html#reviews">Reviews</a></li>
+    <li><a class="text-on-background font-label-bold uppercase px-4 py-1 hover:bg-primary hover:text-on-primary hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#1c1b1b] transition-all" href="./index.html#about">About</a></li>
+  </ul>
+
+  <button id="darkModeToggle" class="border-4 border-on-background bg-surface-variant p-2 shadow-[4px_4px_0px_0px_#1c1b1b] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_#1c1b1b] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all">
+    <span class="material-symbols-outlined block text-on-surface" style="font-variation-settings: 'FILL' 1; font-size: 24px;">dark_mode</span>
+  </button>
+</nav>
+
+<!-- Main Content -->
+<main class="flex-grow p-container_margin_mobile md:p-container_margin_desktop max-w-7xl mx-auto w-full">
+  <div class="mb-12">
+    <h1 class="font-display-xl text-display-xl mb-4 uppercase inline-block bg-primary-container text-on-background border-4 border-on-background shadow-[8px_8px_0px_0px_#1c1b1b] px-4 py-2">Drop The Heat</h1>
+    <p class="font-headline-md text-headline-md max-w-2xl bg-surface border-4 border-on-background shadow-[8px_8px_0px_0px_#1c1b1b] p-4 mt-6">Ceritain pengalaman Bakar-mu. Jujur apa adanya.</p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <!-- Review Form -->
+    <div class="lg:col-span-7 bg-surface border-4 border-on-background shadow-[12px_12px_0px_0px_#1c1b1b] p-8">
+      <div class="flex flex-col gap-8">
+
+        <!-- Author Name -->
+        <div class="flex flex-col gap-2">
+          <label class="font-label-bold text-label-bold uppercase bg-primary-fixed text-on-background self-start px-2 py-1 border-2 border-on-background" for="authorName">Nama Kamu</label>
+          <input class="w-full bg-surface border-4 border-on-background p-4 font-body-lg text-body-lg focus:outline-none focus:border-primary transition-all"
+                 id="authorName" type="text" placeholder="Nama atau nickname kamu..."/>
+        </div>
+
+        <!-- Category -->
+        <div class="flex flex-col gap-2">
+          <label class="font-label-bold text-label-bold uppercase bg-secondary text-on-secondary self-start px-2 py-1 border-2 border-on-background" for="category">Kategori Rating</label>
+          <div class="relative">
+            <select class="w-full appearance-none bg-surface border-4 border-on-background p-4 font-body-lg text-body-lg focus:outline-none focus:border-primary transition-all" id="category">
+              <option disabled selected value="">Pilih Kategori...</option>
+              <option value="Taste">Rasa &amp; Flavor</option>
+              <option value="Service">Kecepatan &amp; Pelayanan</option>
+              <option value="Ambiance">Street Vibe (Suasana)</option>
+              <option value="Price">Harga (Value)</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">arrow_drop_down</span>
+          </div>
+        </div>
+
+        <!-- Visit Date -->
+        <div class="flex flex-col gap-2">
+          <label class="font-label-bold text-label-bold uppercase bg-tertiary-container text-on-background self-start px-2 py-1 border-2 border-on-background" for="visitDate">Tanggal Kunjungan</label>
+          <input class="w-full bg-surface border-4 border-on-background p-4 font-body-lg text-body-lg focus:outline-none focus:border-primary transition-all" id="visitDate" type="date"/>
+        </div>
+
+        <!-- Star Rating -->
+        <div class="flex flex-col gap-2">
+          <label class="font-label-bold text-label-bold uppercase bg-tertiary text-on-tertiary self-start px-2 py-1 border-2 border-on-background" for="star-rating">Heat Level (Rating)</label>
+          <div class="flex gap-2 items-center" id="star-rating-container">
+            <button class="star-btn text-4xl text-on-surface-variant hover:text-primary transition-colors focus:outline-none" onclick="setRating(1)" type="button">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 700;">star</span>
+            </button>
+            <button class="star-btn text-4xl text-on-surface-variant hover:text-primary transition-colors focus:outline-none" onclick="setRating(2)" type="button">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 700;">star</span>
+            </button>
+            <button class="star-btn text-4xl text-on-surface-variant hover:text-primary transition-colors focus:outline-none" onclick="setRating(3)" type="button">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 700;">star</span>
+            </button>
+            <button class="star-btn text-4xl text-on-surface-variant hover:text-primary transition-colors focus:outline-none" onclick="setRating(4)" type="button">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 700;">star</span>
+            </button>
+            <button class="star-btn text-4xl text-on-surface-variant hover:text-primary transition-colors focus:outline-none" onclick="setRating(5)" type="button">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 700;">star</span>
+            </button>
+            <input id="ratingValue" type="hidden" value="0"/>
+          </div>
+        </div>
+
+        <!-- Comment -->
+        <div class="flex flex-col gap-2">
+          <label class="font-label-bold text-label-bold uppercase bg-primary-fixed-dim text-on-background self-start px-2 py-1 border-2 border-on-background" for="comment">The Verdict</label>
+          <textarea class="w-full bg-surface border-4 border-on-background p-4 font-body-lg text-body-lg focus:outline-none focus:border-primary transition-all resize-y"
+                    id="comment" placeholder="Spill the tea..." rows="5"></textarea>
+        </div>
+
+        <button class="bg-primary text-on-primary font-headline-md text-headline-md uppercase border-4 border-on-background py-4 px-8 shadow-[8px_8px_0px_0px_#1c1b1b] hover:shadow-[12px_12px_0px_0px_#1c1b1b] hover:-translate-y-1 hover:-translate-x-1 active:shadow-none active:translate-y-2 active:translate-x-2 transition-all mt-4 self-start flex items-center gap-2"
+                onclick="burnIt()" type="button">
+          Burn It <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Preview Card -->
+    <div class="lg:col-span-5 sticky top-28">
+      <div class="bg-surface-container border-4 border-on-background shadow-[8px_8px_0px_0px_#1c1b1b] relative overflow-hidden">
+        <div class="bg-tertiary-fixed-dim border-b-4 border-on-background p-4 flex items-center justify-between">
+          <h2 class="font-headline-md text-headline-md uppercase flex items-center gap-2">
+            <span class="material-symbols-outlined">receipt_long</span>
+            Review Receipt
+          </h2>
+        </div>
+        <div class="p-8 flex flex-col gap-6">
+          <div>
+            <span class="font-label-bold text-label-bold text-on-surface-variant uppercase block mb-1">Nama</span>
+            <div class="font-body-lg text-body-lg min-h-[28px] border-b-4 border-on-background pb-2" id="previewName">Anonim</div>
+          </div>
+          <div>
+            <span class="font-label-bold text-label-bold text-on-surface-variant uppercase block mb-1">Kategori</span>
+            <div class="font-headline-lg text-headline-lg min-h-[48px] border-b-4 border-on-background pb-2 text-primary-container" id="previewCategory"></div>
+          </div>
+          <div>
+            <span class="font-label-bold text-label-bold text-on-surface-variant uppercase block mb-1">Tanggal</span>
+            <div class="font-body-lg text-body-lg min-h-[28px] border-b-4 border-on-background border-dashed pb-2" id="previewDate"></div>
+          </div>
+          <div>
+            <span class="font-label-bold text-label-bold text-on-surface-variant uppercase block mb-1">Heat Rating</span>
+            <div class="font-headline-md text-headline-md min-h-[36px] border-b-4 border-on-background border-dotted pb-2 flex gap-1 text-primary" id="previewRating"></div>
+          </div>
+          <div>
+            <span class="font-label-bold text-label-bold text-on-surface-variant uppercase block mb-1">The Word</span>
+            <div class="font-body-md text-body-md min-h-[100px] bg-surface p-4 border-4 border-on-background shadow-[4px_4px_0px_0px_#1c1b1b]" id="previewComment"></div>
+          </div>
+        </div>
+        <div class="bg-on-background text-surface p-2 text-center font-label-bold text-label-bold uppercase text-xs tracking-widest">
+          Preview Mode • Not Submitted
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
+
 <!-- Footer -->
-<footer class="flex flex-col md:flex-row justify-between items-center p-container_margin_mobile md:p-container_margin_desktop gap-gutter text-center md:text-left w-full mt-auto bg-on-background dark:bg-surface-container-highest text-surface dark:text-on-background border-t-4 border-on-background dark:border-outline-variant font-label-bold text-label-bold uppercase">
-<div class="font-headline-md text-headline-md font-black text-primary">
-            TEH TARIK BAKAR
-        </div>
-<div class="text-surface dark:text-on-background opacity-80">
-            © 2024 TEH TARIK BAKAR • STREET CULTURE TEA
-        </div>
-<ul class="flex flex-wrap justify-center gap-4">
-<li><a class="text-surface dark:text-on-background opacity-80 hover:text-primary-fixed-dim hover:opacity-100 transition-opacity focus:outline-dashed focus:outline-2 focus:outline-primary" href="#">Menu</a></li>
-<li><a class="text-surface dark:text-on-background opacity-80 hover:text-primary-fixed-dim hover:opacity-100 transition-opacity focus:outline-dashed focus:outline-2 focus:outline-primary" href="#">About</a></li>
-<li><a class="text-surface dark:text-on-background opacity-80 hover:text-primary-fixed-dim hover:opacity-100 transition-opacity focus:outline-dashed focus:outline-2 focus:outline-primary" href="#">Locate Us</a></li>
-<li><a class="text-surface dark:text-on-background opacity-80 hover:text-primary-fixed-dim hover:opacity-100 transition-opacity focus:outline-dashed focus:outline-2 focus:outline-primary" href="#">Contact</a></li>
-</ul>
+<footer class="flex flex-col md:flex-row justify-between items-center px-container_margin_mobile md:px-container_margin_desktop py-8 gap-gutter text-center md:text-left w-full mt-auto bg-on-background text-surface border-t-4 border-on-background font-label-bold text-label-bold uppercase">
+  <div class="font-headline-md text-headline-md font-black text-primary-container">
+    TEH TARIK BAKAR
+  </div>
+  <div class="opacity-80">
+    © 2026 Teh Tarik Bakar (TTB). All rights reserved.
+  </div>
+  <ul class="flex flex-wrap justify-center gap-4">
+    <li><a class="opacity-80 hover:text-primary-fixed-dim hover:opacity-100 transition-opacity" href="./index.html#menu">Menu</a></li>
+    <li><a class="opacity-80 hover:text-primary-fixed-dim hover:opacity-100 transition-opacity" href="./index.html#about">About</a></li>
+    <li><a class="opacity-80 hover:text-primary-fixed-dim hover:opacity-100 transition-opacity" href="https://maps.app.goo.gl/xvGnFeNnDa6CdtbP8" target="_blank" rel="noopener noreferrer">Lokasi</a></li>
+    <li><a class="opacity-80 hover:text-primary-fixed-dim hover:opacity-100 transition-opacity" href="https://www.instagram.com/tehtarikbakar/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+  </ul>
 </footer>
-</body></html>
+
+</body>
+</html>
