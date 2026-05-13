@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;800;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet"/>
-<link href="src/data1.png" rel="icon" />
+<link href="src/data1.png" class="favicon-custom" rel="icon" />
 <script id="tailwind-config">
   tailwind.config = {
     darkMode: "class",
@@ -118,6 +118,13 @@
   }
   .neubrutalism-border { border: 4px solid #1c1b1b !important; }
   .dark .neubrutalism-border { border-color: #f3f0ef !important; }
+  .favicon-custom {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+  }
 </style>
 
 <script>

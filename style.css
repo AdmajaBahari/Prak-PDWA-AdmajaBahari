@@ -61,6 +61,13 @@ html {
   box-shadow: 12px 12px 0px 0px #f3f0ef !important;
 }
 
+.logo {
+  width: 40px;          /* Sesuaikan ukuran */
+  height: 40px;         /* Harus sama dengan width agar bulat sempurna */
+  border-radius: 50%;   /* Ini yang membuat jadi lingkaran */
+  object-fit: cover;    /* Supaya gambar tidak penyet kalau aslinya bukan persegi */
+}
+
 /* GLOBAL MAPS THEME - Berlaku di SEMUA halaman */
 body {
   background: #ffffff !important; /* Light mode default: PUTIH */
